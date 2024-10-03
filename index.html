@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="sticky top-0">
         <div class="navbar bg-[#F9F7F3] mb-14 mt-0">
             <div class="navbar-start">
                 <div class="dropdown">
@@ -40,7 +40,7 @@
 
 
                 </div>
-                <a class="btn btn-ghost text-xl">Blog</a>
+                <a class="btn btn-ghost text-xl bg-[#B4F461]">Blog</a>
             </div>
 
             <div class="navbar-center hidden lg:flex">
@@ -62,21 +62,25 @@
 
 
 
-    <main class="sticky">
+    <main>
 
         <div class="flex justify-center gap-4 my-4">
-            <button class="border-2 px-4 py-2 rounded font-bold">Donation</button>
-            <button class="border-2 px-4 py-2 rounded font-bold">History</button>
+            <button id="donate-button" class="border-2 px-4 py-2 rounded font-bold bg-[#B4F461]">Donation</button>
+            <button id="history-button" class="border-2 px-4 py-2 rounded font-bold">History</button>
         </div>
 
-        <section class="mt-8 w-10/12 mx-auto">
+
+
+        <!-- DONATION SECTION -->
+        <section id="donate-section" class="mt-8 w-10/12 mx-auto">
 
 
             <!-- FIRST CARD -->
             <div class="flex items-center gap-10">
                 <img width="500px" src="./images/noakhali.png" alt="">
                 <div>
-                    <p class="flex items-center gap-1"><img src="./images/coin.png" alt=""><span id="noakhali-balance">0</span>BDT</p>
+                    <p class="flex items-center gap-1"><img src="./images/coin.png" alt=""><span
+                            id="noakhali-balance">0</span>BDT</p>
                     <h1 class="text-2xl font-bold mb-4">Donate for Flood at Noakhali, Bangladesh</h1>
                     <p>If you work in a nonprofit, you’re probably knee-deep in crafting your donation letters.After
                         all, donation letters are one of the most effective ways to connect with your supporters and
@@ -85,8 +89,10 @@
                         they will have.Now the question is: how do you get your donation letter to stand out from the
                         crowd?
                     </p>
-                    <input id="noakhali-input" class="border-2 w-full p-2 rounded mt-4" type="text" placeholder="Write Your Donation Amount">
-                    <button id="noakhali-donate-button" class="w-full bg-[#B4F461] font-bold mt-4 p-2 rounded">Donate</button>
+                    <input id="noakhali-input" class="border-2 w-full p-2 rounded mt-4" type="text"
+                        placeholder="Write Your Donation Amount">
+                    <button id="noakhali-donate-button"
+                        class="w-full bg-[#B4F461] font-bold mt-4 p-2 rounded">Donate</button>
                 </div>
             </div>
 
@@ -96,7 +102,8 @@
             <div class="flex items-center gap-10 mt-12">
                 <img width="500px" src="./images/feni.png" alt="">
                 <div>
-                    <p class="flex items-center gap-1"><img src="./images/coin.png" alt=""><span id="feni-balance">0</span>BDT</p>
+                    <p class="flex items-center gap-1"><img src="./images/coin.png" alt=""><span
+                            id="feni-balance">0</span>BDT</p>
                     <h1 class="text-2xl font-bold mb-4">Donate for Flood Relief in Feni,Bangladesh</h1>
                     <p>If you work in a nonprofit, you are probably knee-deep in crafting your donation letters.After
                         all, donation letters are one of the most effective ways to connect with your supporters and
@@ -105,8 +112,10 @@
                         they will have.Now the question is: how do you get your donation letter to stand out from the
                         crowd?
                     </p>
-                    <input id="feni-amount" class="border-2 w-full p-2 rounded mt-4" type="text" placeholder="Write Your Donation Amount">
-                    <button id="feni-donate-button" class="w-full bg-[#B4F461] font-bold mt-4 p-2 rounded">Donate</button>
+                    <input id="feni-amount" class="border-2 w-full p-2 rounded mt-4" type="text"
+                        placeholder="Write Your Donation Amount">
+                    <button id="feni-donate-button"
+                        class="w-full bg-[#B4F461] font-bold mt-4 p-2 rounded">Donate</button>
                 </div>
             </div>
 
@@ -117,7 +126,8 @@
             <div class="flex items-center gap-10 mt-12">
                 <img width="500px" src="./images/quota-protest.png" alt="">
                 <div>
-                    <p class="flex items-center gap-1"><img src="./images/coin.png" alt=""><span id="quota-balance">0</span>BDT</p>
+                    <p class="flex items-center gap-1"><img src="./images/coin.png" alt=""><span
+                            id="quota-balance">0</span>BDT</p>
                     <h1 class="text-2xl font-bold mb-4">Aid for Injured in the Quota Movement</h1>
                     <p>If you work in a nonprofit, you’re probably knee-deep in crafting your donation letters.After
                         all, donation letters are one of the most effective ways to connect with your supporters and
@@ -126,11 +136,25 @@
                         they will have.Now the question is: how do you get your donation letter to stand out from the
                         crowd?
                     </p>
-                    <input id="quota-input-amount" class="border-2 w-full p-2 rounded mt-4" type="text" placeholder="Write Your Donation Amount">
-                    <button id="quota-movement-button" class="w-full bg-[#B4F461] font-bold mt-4 p-2 rounded">Donate</button>
+                    <input id="quota-input-amount" class="border-2 w-full p-2 rounded mt-4" type="text"
+                        placeholder="Write Your Donation Amount">
+                    <button id="quota-movement-button"
+                        class="w-full bg-[#B4F461] font-bold mt-4 p-2 rounded">Donate</button>
                 </div>
             </div>
         </section>
+
+
+
+
+
+        <!-- HISTORY SECTION -->
+        <section id="history-section" class="hidden w-10/12 mx-auto mt-4">
+
+        </section>
+
+
+
     </main>
 
 
@@ -139,6 +163,8 @@
 
     <script src="js/home.js"></script>
     <script src="js/utilities.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/features.js"></script>
 </body>
 
 </html>

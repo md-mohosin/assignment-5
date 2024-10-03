@@ -1,25 +1,16 @@
 // NOAKHALI
 document.getElementById('noakhali-donate-button').addEventListener('click', function (event) {
     event.preventDefault()
-    // const noakhaliBalance = document.getElementById('noakhali-balance').innerText
-    // const noakhaliBalanceNumber = parseFloat(noakhaliBalance)
 
     const noakhaliBalance = getBalanceById('noakhali-balance')
 
-
-
-
-    // const noakhaliInputAmount = document.getElementById('noakhali-input').value
-    // const noakhaliInputAmountNumber = parseFloat(noakhaliInputAmount)
-
     const noakhaliInputAmount = getInputValueById('noakhali-input')
 
-    if(isNaN(noakhaliInputAmount)){
+    if (isNaN(noakhaliInputAmount)) {
         alert('give a valid number')
         return
     }
-
-
+    
 
 
     const noakhaliNewBalance = noakhaliBalance + noakhaliInputAmount
@@ -33,7 +24,27 @@ document.getElementById('noakhali-donate-button').addEventListener('click', func
 
     const newMainBalance = mainBalance - noakhaliNewBalance
 
+
+    if (noakhaliInputAmount > mainBalance) {
+        alert('Not enough money')
+        return
+    }
+
     document.getElementById('main-balance').innerText = newMainBalance
+
+
+
+
+
+    const history = document.getElementById('history-section')
+
+    const div = document.createElement('div')
+    div.innerHTML = `
+    <div class="border-2 p-6 mb-4 rounded-xl bg-red-500">
+    <h3 class="font-bold text-xl">${noakhaliInputAmount} Taka is Donate for Flood at Noakhali, Bangladesh</h3>
+    </div>
+    `
+    history.appendChild(div)
 
 })
 
@@ -53,7 +64,7 @@ document.getElementById('feni-donate-button').addEventListener('click', function
 
     const feniInputAmount = getInputValueById('feni-amount')
 
-    if(isNaN(feniInputAmount)){
+    if (isNaN(feniInputAmount)) {
         alert('give a valid number')
         return
     }
@@ -69,7 +80,25 @@ document.getElementById('feni-donate-button').addEventListener('click', function
 
     const updateBalance = mainBalance - feniNewBalance
 
+    if (feniInputAmount > mainBalance) {
+        alert('Not enough money')
+        return
+    }
+
     document.getElementById('main-balance').innerText = updateBalance
+
+
+
+
+    const history = document.getElementById('history-section')
+
+    const div = document.createElement('div')
+    div.innerHTML = `
+    <div class="border-2 p-6 mb-4 rounded-xl bg-green-500">
+    <h3 class="font-bold text-xl">${feniInputAmount} Taka is Donate for Flood Relief in Feni,Bangladesh</h3>
+    </div>
+    `
+    history.appendChild(div)
 
 })
 
@@ -92,7 +121,7 @@ document.getElementById('quota-movement-button').addEventListener('click', funct
     const quotaBalance = getBalanceById('quota-balance')
 
     const quotaInputAmount = getInputValueById('quota-input-amount')
-    if(isNaN(quotaInputAmount)){
+    if (isNaN(quotaInputAmount)) {
         alert('give a valid number')
         return
     }
@@ -105,12 +134,25 @@ document.getElementById('quota-movement-button').addEventListener('click', funct
     const mainBalance = getBalanceById('main-balance')
 
     const updateBalance = mainBalance - quotaNewBalance
-    if(quotaInputAmount > updateBalance){
+
+    if (quotaInputAmount > mainBalance) {
         alert('Not enough money')
-        event.stopImmediatePropagation()
         return
     }
 
     document.getElementById('main-balance').innerText = updateBalance
+
+
+
+    const history = document.getElementById('history-section')
+
+    const div = document.createElement('div')
+    div.innerHTML = `
+    <div class="border-2 p-6 mb-4 rounded-xl bg-yellow-500">
+    <h3 class="font-bold text-xl">${quotaInputAmount} Taka is Donate for Aid for Injured in the Quota Movement</h3>
+    </div>
+    `
+    history.appendChild(div)
+
 
 })
