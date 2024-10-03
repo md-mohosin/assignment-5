@@ -1,3 +1,4 @@
+// NOAKHALI
 document.getElementById('noakhali-donate-button').addEventListener('click', function (event) {
     event.preventDefault()
     // const noakhaliBalance = document.getElementById('noakhali-balance').innerText
@@ -12,6 +13,11 @@ document.getElementById('noakhali-donate-button').addEventListener('click', func
     // const noakhaliInputAmountNumber = parseFloat(noakhaliInputAmount)
 
     const noakhaliInputAmount = getInputValueById('noakhali-input')
+
+    if(isNaN(noakhaliInputAmount)){
+        alert('give a valid number')
+        return
+    }
 
 
 
@@ -37,7 +43,7 @@ document.getElementById('noakhali-donate-button').addEventListener('click', func
 
 
 
-
+// FENI
 document.getElementById('feni-donate-button').addEventListener('click', function (event) {
     event.preventDefault()
 
@@ -46,6 +52,11 @@ document.getElementById('feni-donate-button').addEventListener('click', function
 
 
     const feniInputAmount = getInputValueById('feni-amount')
+
+    if(isNaN(feniInputAmount)){
+        alert('give a valid number')
+        return
+    }
 
 
     const feniNewBalance = feniBalance + feniInputAmount
@@ -57,6 +68,48 @@ document.getElementById('feni-donate-button').addEventListener('click', function
     const mainBalance = getBalanceById('main-balance')
 
     const updateBalance = mainBalance - feniNewBalance
+
+    document.getElementById('main-balance').innerText = updateBalance
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+// QUOTA MOVEMENT
+document.getElementById('quota-movement-button').addEventListener('click', function (event) {
+    event.preventDefault()
+
+    const quotaBalance = getBalanceById('quota-balance')
+
+    const quotaInputAmount = getInputValueById('quota-input-amount')
+    if(isNaN(quotaInputAmount)){
+        alert('give a valid number')
+        return
+    }
+
+    const quotaNewBalance = quotaBalance + quotaInputAmount
+
+    document.getElementById('quota-balance').innerText = quotaNewBalance
+
+
+    const mainBalance = getBalanceById('main-balance')
+
+    const updateBalance = mainBalance - quotaNewBalance
+    if(quotaInputAmount > updateBalance){
+        alert('Not enough money')
+        event.stopImmediatePropagation()
+        return
+    }
 
     document.getElementById('main-balance').innerText = updateBalance
 
