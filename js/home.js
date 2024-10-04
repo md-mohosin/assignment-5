@@ -6,11 +6,14 @@ document.getElementById('noakhali-donate-button').addEventListener('click', func
 
     const noakhaliInputAmount = getInputValueById('noakhali-input')
 
-    if (isNaN(noakhaliInputAmount)) {
-        alert('give a valid number')
+    if (isNaN(noakhaliInputAmount) || noakhaliInputAmount < 0) {
+        alert('give a valid and positive number')
         return
     }
-    
+
+    else {
+        alert('You have successfully donate')
+    }
 
 
     const noakhaliNewBalance = noakhaliBalance + noakhaliInputAmount
@@ -22,23 +25,21 @@ document.getElementById('noakhali-donate-button').addEventListener('click', func
     const mainBalance = getBalanceById('main-balance')
 
 
-    const newMainBalance = mainBalance - noakhaliNewBalance
-
+    const newMainBalance = mainBalance - noakhaliInputAmount
 
     if (noakhaliInputAmount > mainBalance) {
         alert('Not enough money')
         return
     }
 
+
     document.getElementById('main-balance').innerText = newMainBalance
-
-
-
 
 
     const history = document.getElementById('history-section')
 
     const div = document.createElement('div')
+
     div.innerHTML = `
     <div class="border-2 p-6 mb-4 rounded-xl bg-red-500">
     <h3 class="font-bold text-xl">${noakhaliInputAmount} Taka is Donate for Flood at Noakhali, Bangladesh</h3>
@@ -64,9 +65,13 @@ document.getElementById('feni-donate-button').addEventListener('click', function
 
     const feniInputAmount = getInputValueById('feni-amount')
 
-    if (isNaN(feniInputAmount)) {
-        alert('give a valid number')
+    if (isNaN(feniInputAmount) || feniInputAmount < 0) {
+        alert('give a valid and positive number')
         return
+    }
+
+    else {
+        alert('You have successfully donate')
     }
 
 
@@ -78,7 +83,7 @@ document.getElementById('feni-donate-button').addEventListener('click', function
 
     const mainBalance = getBalanceById('main-balance')
 
-    const updateBalance = mainBalance - feniNewBalance
+    const updateBalance = mainBalance - feniInputAmount
 
     if (feniInputAmount > mainBalance) {
         alert('Not enough money')
@@ -121,10 +126,16 @@ document.getElementById('quota-movement-button').addEventListener('click', funct
     const quotaBalance = getBalanceById('quota-balance')
 
     const quotaInputAmount = getInputValueById('quota-input-amount')
-    if (isNaN(quotaInputAmount)) {
-        alert('give a valid number')
+
+    if (isNaN(quotaInputAmount) || quotaInputAmount < 0) {
+        alert('give a valid and positive number')
         return
     }
+
+    else {
+        alert('You have successfully donate')
+    }
+
 
     const quotaNewBalance = quotaBalance + quotaInputAmount
 
@@ -133,7 +144,7 @@ document.getElementById('quota-movement-button').addEventListener('click', funct
 
     const mainBalance = getBalanceById('main-balance')
 
-    const updateBalance = mainBalance - quotaNewBalance
+    const updateBalance = mainBalance - quotaInputAmount
 
     if (quotaInputAmount > mainBalance) {
         alert('Not enough money')
